@@ -1,0 +1,26 @@
+
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nome</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for nome in n  %} 
+              <tr>
+                <th>{{ nome.user_id    }}</th>
+                <td>{{ nome.user_name  | raw | convert_encoding('UTF-8', 'ISO-8859-1') }}</td>
+                <td><a href="http://rafaelalmeidadev.com/infonit/usuarios/editar/{{nome.user_id}}">Editar</a></td>
+                <td><a href="http://rafaelalmeidadev.com/infonit/usuarios/excluir/{{nome.user_id}}">Excluir</a></td>
+              </tr>   
+              {% endfor %}          
+            </tbody>
+          </table>
+        <ul>
+            <li></li>
+            
+        </ul>       
+      
+  
+{% include "includes/footer.html" %}

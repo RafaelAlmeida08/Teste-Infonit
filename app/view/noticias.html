@@ -1,0 +1,15 @@
+<div class="news">
+    {% for nome in n  %} 
+        <ul>
+            <div class="noticia-single">                            
+                <h1>{{ nome.noticia_titulo | raw | convert_encoding('UTF-8', 'ISO-8859-1') }}</h1> 
+                <div class="img-data">
+                    <img src="http://rafaelalmeidadev.com/infonit/assets/img/{{nome.noticia_img}}"/>  
+                    <span>{{nome.noticia_data}}</span>
+                </div>                        
+                <span>{{nome.noticia_conteudo | raw | convert_encoding('UTF-8', 'ISO-8859-1') }}</span>                      
+            </div>  
+        </ul>       
+    {% endfor %}        
+</div>
+{% include "includes/footer.html" %}

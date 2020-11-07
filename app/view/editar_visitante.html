@@ -1,0 +1,41 @@
+<div class="container">   
+    {% for nome in n  %} 
+    <h1 style="margin-bottom: 20px;">Editar Usuário {{nome.user_name | raw | convert_encoding('UTF-8', 'ISO-8859-1') }}</h1>
+    <form method="POST" action="http://rafaelalmeidadev.com/infonit/usuarios/atualizarusuarios/{{nome.user_id}}">
+        <div class="form-group">
+            <input type="text" style="display: none" name="id" value="{{nome.user_id }}" /><br/>
+          <label>Nome</label>
+          <input required type="text" name="name" value="{{nome.user_name  | raw | convert_encoding('UTF-8', 'ISO-8859-1') }}" class="form-control">          
+        </div>
+        <div class="form-group">          
+          <label>E-mail</label>
+          <input required type="email" name="email" value="{{nome.user_email  | raw | convert_encoding('UTF-8', 'ISO-8859-1') }}" class="form-control">          
+        </div>        
+        <div class="form-group">           
+          <label>CPF</label>
+          <input required type="text" name="cpf" value="{{nome.user_cpf}}" class="form-control">          
+        </div>
+        <div class="form-group">           
+            <label>Endereço</label>
+            <input required type="text" name="end" value="{{nome.user_end  | raw | convert_encoding('UTF-8', 'ISO-8859-1') }}" class="form-control">          
+          </div>
+          <div class="form-group">           
+            <label>Cidade</label>
+            <input required type="text" name="cidade" value="{{nome.user_cidade  | raw | convert_encoding('UTF-8', 'ISO-8859-1') }}" class="form-control">          
+          </div>
+          <div class="form-group">           
+            <label>UF</label>
+            <input required type="text" name="uf" maxlength="2" value="{{nome.user_uf}}" class="form-control">          
+          </div>     
+          <div class="form-group">
+            <label>Tipo de usuário</label>
+            <select name="lvl"  class="form-control">
+              <option value="1">Administrador</option>
+              <option value="2">Usuário Comum</option>            
+            </select>
+          </div>    
+        <button style="margin-bottom: 20px;" type="submit" class="btn btn-primary">Atualizar</button>
+      </form>
+      {% endfor %}
+</div>
+{% include "includes/footer.html" %}
